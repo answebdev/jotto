@@ -1,14 +1,23 @@
 import React from 'react';
 
-// JS Doc:
 /**
- * Functional React component for congratulatory message.
+ * Functional react component for congratulatory message.
  * @function
- * @returns {JSX.Element} - Rendered component (or null if 'sucess' prop is false)
+ * @param {object} props - React props.
+ * @returns {JSX.Element} - Rendered component (or null if `success` prop is false).
  */
-
-const Congrats = () => {
-  return <div></div>;
+const Congrats = (props) => {
+  if (props.success) {
+    return (
+      <div data-test='component-congrats' className='alert alert-success'>
+        <span data-test='congrats-message'>
+          Congratulations! You guessed the word!
+        </span>
+      </div>
+    );
+  } else {
+    return <div data-test='component-congrats' />;
+  }
 };
 
 export default Congrats;
